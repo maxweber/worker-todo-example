@@ -1,0 +1,35 @@
+// The example on Cloudflare Workers: the Worker of todo.worker with
+// dist/public as its static assets (the page's script and stylesheet,
+// which Cloudflare serves before the Worker runs) and one Durable Object
+// class, TodoList: one Object per list. `npm run deploy` builds and
+// deploys, to <name>.<account>.workers.dev unless a route says otherwise.
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "worker-todo-example",
+  "main": "dist/worker/todo.js",
+  "compatibility_date": "2026-10-01",
+  // nodejs_compat: node:zlib, for the brotli of the frame stream.
+  // enable_request_signal: the request's signal aborts when the client
+  // goes (the default from compatibility date 2026-11-17).
+  "compatibility_flags": ["nodejs_compat", "enable_request_signal"],
+  "assets": {
+    "directory": "./dist/public"
+  },
+  "durable_objects": {
+    "bindings": [
+      { "name": "LIST", "class_name": "TodoList" }
+    ]
+  },
+  "migrations": [
+    { "tag": "v1", "new_sqlite_classes": ["TodoList"] }
+  ],
+  "observability": {
+    "enabled": true
+  },
+  // on IPv4: `localhost` resolves to ::1 on some machines, which workerd
+  // cannot bind
+  "dev": {
+    "ip": "127.0.0.1",
+    "port": 8787
+  }
+}

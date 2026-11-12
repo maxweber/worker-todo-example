@@ -1,0 +1,206 @@
+:root {
+  --ink: #1d2433;
+  --soft: #667085;
+  --line: #e4e7ec;
+  --paper: #ffffff;
+  --page: #f6f7f9;
+  --accent: #2f6fed;
+  --done: #98a2b3;
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #e6e9ef;
+    --soft: #98a2b3;
+    --line: #2b3240;
+    --paper: #171b23;
+    --page: #0f1218;
+    --accent: #7aa5ff;
+    --done: #5d6675;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 2rem 1rem 4rem;
+  background: var(--page);
+  color: var(--ink);
+  font: 16px/1.5 system-ui, sans-serif;
+}
+
+main {
+  max-width: 34rem;
+  margin: 0 auto;
+}
+
+h1 {
+  margin: 0 0 1rem;
+  font-size: 2rem;
+}
+
+h2 {
+  margin: 0 0 0.5rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--soft);
+}
+
+.add {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.add input {
+  flex: 1;
+  min-width: 0;
+  padding: 0.65rem 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: 0.5rem;
+  background: var(--paper);
+  color: inherit;
+  font: inherit;
+}
+
+.add input:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+button {
+  padding: 0.65rem 1rem;
+  border: 0;
+  border-radius: 0.5rem;
+  background: var(--accent);
+  color: #fff;
+  font: inherit;
+  cursor: pointer;
+}
+
+.todos {
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+  border: 1px solid var(--line);
+  border-radius: 0.5rem;
+  background: var(--paper);
+}
+
+.todos li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 0.5rem 0.55rem 0.8rem;
+}
+
+.todos li + li {
+  border-top: 1px solid var(--line);
+}
+
+.todos label {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  gap: 0.7rem;
+  min-width: 0;
+  cursor: pointer;
+}
+
+.todos label span {
+  overflow-wrap: anywhere;
+}
+
+.todos input[type="checkbox"] {
+  flex: none;
+  width: 1.15rem;
+  height: 1.15rem;
+  accent-color: var(--accent);
+}
+
+.todos .done span {
+  color: var(--done);
+  text-decoration: line-through;
+}
+
+.todos .remove {
+  flex: none;
+  padding: 0.1rem 0.55rem;
+  background: none;
+  color: var(--soft);
+  font-size: 1.25rem;
+  line-height: 1.2;
+}
+
+.todos .remove:hover {
+  color: var(--ink);
+}
+
+.empty,
+.count {
+  margin: 0.75rem 0 0;
+  color: var(--soft);
+}
+
+section {
+  margin-top: 2.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+  color: var(--soft);
+  font-size: 0.92rem;
+}
+
+section p {
+  margin: 0;
+}
+
+section ul {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+section li + li {
+  margin-top: 0.35rem;
+}
+
+section strong,
+section code {
+  color: var(--ink);
+}
+
+code {
+  font-size: 0.9em;
+}
+
+a {
+  color: var(--accent);
+}
+
+.history {
+  margin: 0.9rem 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.88rem;
+}
+
+.history li {
+  display: flex;
+  gap: 0.4rem;
+  margin: 0;
+}
+
+.history .number {
+  flex: none;
+  min-width: 2rem;
+  color: var(--done);
+  font-variant-numeric: tabular-nums;
+}
+
+.history q {
+  color: var(--ink);
+  overflow-wrap: anywhere;
+}

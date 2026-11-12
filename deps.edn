@@ -1,0 +1,20 @@
+;; The two libraries the example is made of, and the compiler. The rframes
+;; modules are pinned to the commit of https://github.com/simplemono/rframes/pull/1
+;; until it is merged.
+{:paths ["src"]
+ :deps {com.whimsical/clojurific {:mvn/version "0.12.15"}
+        ;; the state: an event log and a read model in the Object's SQLite
+        io.github.maxweber/worker-event-sourcing
+        {:git/url "https://github.com/maxweber/worker-event-sourcing.git"
+         :git/sha "1f471b03bb233f58e89f1a9b6a5137cd9833e4fa"}
+        ;; the page: views rendered in the Object, frames relayed by the Worker
+        io.github.simplemono/rframes$worker
+        {:git/url "https://github.com/simplemono/rframes.git"
+         :git/sha "e70b076f854847d0863b0aa64a2283023a26483b"
+         :deps/root "worker"}
+        ;; the browser half of rframes
+        io.github.simplemono/rframes$client
+        {:git/url "https://github.com/simplemono/rframes.git"
+         :git/sha "e70b076f854847d0863b0aa64a2283023a26483b"
+         :deps/root "client"}}
+ :aliases {:test {:extra-paths ["test"]}}}
