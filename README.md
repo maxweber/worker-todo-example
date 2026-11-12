@@ -10,13 +10,12 @@ libraries used together:
   module, renders the page in that same Object and pushes it to every
   open tab.
 
-A deployment to try: https://worker-todo-example.storrito.workers.dev
-
 Mostly written by Claude Code.
 
 ## Try it
 
-1. Open the address. You get a list of your own at `/l/<id>/`.
+1. Run it or deploy it, see below, and open its address. You get a
+   list of your own at `/l/<id>/`.
 2. Add a few todos. Open the same address in a second tab, or on a
    phone, and tick one there.
 3. Read "Behind the page". It says how many tabs are connected, when the
@@ -109,9 +108,10 @@ the two compatibility flags. To run the checks against a deployment:
 BASE=https://worker-todo-example.<account>.workers.dev node test/worker/check.mjs
 ```
 
-## Measured on the deployment
+## Measured on a deployment
 
-Chromium over HTTP/3, the Worker in Düsseldorf, 2026-11-12:
+The example ran on Cloudflare for a day. Chromium over HTTP/3, the
+Worker in Düsseldorf, 2026-11-12:
 
 - Typing a todo and pressing Enter until it showed took 125 to 219 ms.
 - The first frame of a new list took 601 bytes on the wire. The frames
