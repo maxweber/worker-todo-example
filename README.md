@@ -131,13 +131,6 @@ Chromium over HTTP/3, the Worker in Düsseldorf, 2026-11-12:
 - A limit on lists. A list holds at most 100 todos of 200 characters,
   but anyone can make another list.
 
-## The pins
-
-`deps.edn` pins the two rframes modules to the commit of
-[simplemono/rframes#1](https://github.com/simplemono/rframes/pull/1),
-which adds the Worker module. After the merge the pin should move to a
-commit on `main`.
-
 ## License
 
 MIT
